@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SL DARK CYBER</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<header>SL DARK CYBER</header>
+<div class="slide"><h1>WELCOME TO SL DARK CYBER</h1></div>
+
+<nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<section id="home">
+    <h2>Home</h2>
+    <p>Welcome to SL DARK CYBER official blog platform.</p>
+</section>
+
+<section id="about">
+    <h2>About</h2>
+    <p>SL DARK CYBER is a dark-themed tech and bot-based Sri Lankan cyber blog.</p>
+</section>
+
+<section id="services">
+    <h2>Services</h2>
+    <div class="service-box">
+        <h3>Blog</h3>
+        <p>Latest cyber, tech, and programming-related posts updated regularly.</p>
+    </div>
+    <div class="service-box">
+        <h3>WhatsApp Bots Status</h3>
+        <p>Live updates, bot uptime status, and bot features.</p>
+    </div>
+</section>
+
+<section id="login">
+    <h2>Login</h2>
+    <p><a href="login.html">Go to Login page</a></p>
+</section>
+
+<footer>
+    Contact: ravindulakahitha845@gmail.com | WhatsApp: +94772854872
+</footer>
+
+<script>
+// Particle background animation
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = [];
+for(let i=0;i<120;i++){
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*2+1,
+    d: Math.random()*1.5
+  });
+}
+
+function draw(){
+  ctx.fillStyle = 'rgba(10,10,15,0.4)';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = '#b56bff';
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2,false);
+    ctx.fill();
+    p.y += p.d;
+    if(p.y>canvas.height) p.y = 0;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+// Smooth scroll nav
+document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    });
+});
+</script>
+
+</body>
+</html>

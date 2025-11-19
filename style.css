@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0a0f;
+    color: #e0d6ff;
+    overflow-x:hidden;
+}
+canvas#bgCanvas {
+    position: fixed;
+    top:0; left:0;
+    z-index: -1;
+}
+header {
+    padding: 20px;
+    text-align: center;
+    background: #1a1a26;
+    font-size: 28px;
+    font-weight: bold;
+    color: #b56bff;
+}
+.slide {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slide h1 {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid #b56bff;
+    width: 0;
+    animation: typing 3s steps(30) forwards, blink .75s step-end infinite;
+}
+@keyframes typing {from{width:0} to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: #14141d;
+}
+nav a {
+    color: #cfa8ff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #b56bff,0 0 20px #b56bff;
+}
+section {
+    padding: 40px;
+    animation: fadeIn 1.5s ease;
+    background: linear-gradient(120deg,#12001f,#3b0066);
+    background-size:200% 200%;
+    animation: fadeIn 1.5s ease, gradientAnim 15s ease infinite;
+}
+h2 {color: #bb77ff;}
+.service-box {
+    background: #1a1a26;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1a1a26;
+    margin-top: 40px;
+    color: #cfa8ff;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes gradientAnim{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
